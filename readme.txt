@@ -1,0 +1,1 @@
+This consists of small programs to demonstrate, various how-tos on Cassandra, the open source No Sql Database.
