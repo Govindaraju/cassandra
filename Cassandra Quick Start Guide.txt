@@ -1,0 +1,42 @@
+SETUP
+=====
+
+	INSTALLING CASSANDARA
+	----------------------
+	1. Download Apache Cassandra from http://planetcassandra.org/Download/DataStaxCommunityEdition
+		a. choose Windows 7 - 64 bit
+		b. choose MSI Installer
+	2. Install with MSI file, with the default options.
+		It will get installed as windows service. If you want to restart the service, 
+		look for "DataStax_Cassandra_Community_Server" in windows services.
+
+	CONFIGURATION
+	-------------
+	1. Locate the file cassandra.yaml (default location : C:\Program Files (x86)\DataStax Community\apache-cassandra\conf\) 
+		and change the value for the property start_native_transport to true. This is to connect to the cluster from a Java
+		Driver using native protocol.
+	2. Restart the server using the windows service "DataStax_Cassandra_Community_Server" 
+
+	References : 
+		http://www.datastax.com/docs/1.2/cql_cli/using_cql
+		http://www.datastax.com/doc-source/developer/java-driver/index.html#introduction/driverDependencies_r.html
+
+FIRST JAVA CLIENT
+=================
+	JAVA DRIVER SETUP
+	----------------------
+	1. Create a Maven Project in Eclipse.
+	2. Add the following to the pom.xml file.
+			<dependencies>
+				<dependency>
+					<groupId>com.datastax.cassandra</groupId>
+					<artifactId>cassandra-driver-core</artifactId>
+					<version>1.0.0</version>
+				</dependency>
+			</dependencies>
+	2. Build the project and you should now see all the driver related jars under the Maven Dependencies folder.
+	
+	FIRST CLIENT
+	------------
+	A sample client MetaDataFetchClient.java can be found at com.gimpact.cassandra.client
+	
